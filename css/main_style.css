@@ -1,9 +1,52 @@
+/*
+  #e66101 Darker orange
+  #fdb863 Lighter orange
+  #f7f7f7 White
+  #b2abd2 Lighter purple
+  #5e3c99 Darker purple
+
+*/
 body {
   background-color: # #f7f7f7
-  color:#5e3c99
+  color:#5e3c99;
   text-align: center;
+  margin: 0;
 }
 
 h1{
-  color: #e66101
+  color: #e66101;
+  padding: 5px;
+  margin: 0;
+}
+
+
+
+#body-container{
+  background-color: #5e3c99;
+  max-width: 1000px;
+  margin: auto;
+  height: 100vh;
+  border: 2px soild #f7f7f7;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+#header {
+  background-color: #b2abd2
+}
+
+#profile-picture{
+  float: left;
+}
+
+#welcome-text {
+  padding-top: 25px;
+  font-size: 25px;
+}
+
+#research-interests {
+  text-align: left;
+  font-size: 25px;
+  position: relative;
+  left: 50px;
 }
