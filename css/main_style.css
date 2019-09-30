@@ -51,6 +51,13 @@ h1{
   position: relative;
   left: 50px;
 }
+
+#copyright{
+  position: absolute;
+  width: 1000px;
+  text-align: center;
+  bottom: :20px;
+}
 =======
 /*
   #e66101 Darker orange
@@ -104,5 +111,12 @@ h1{
   font-size: 25px; /* property sets the size of a font */
   position: relative; /* property specifies the type of positioning method used for an element (static, relative, absolute, fixed, or sticky) */
   left: 50px; /* The left property affects the horizontal position of a positioned element. This property has no effect on non-positioned elements. This element inheir relative postion from varibale set above. */
+}
+
+#copyright{
+  position: absolute;
+  width: 1000px;
+  text-align: center;
+  bottom: :20px;
 }
 >>>>>>> before discard

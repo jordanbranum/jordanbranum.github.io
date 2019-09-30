@@ -9,13 +9,17 @@
 <body>
   <div id="body-container">
       <div id="header">
-        <h1>Hello, my name is Jordan Branum!</h1>
+        <h1>
+        <script>
+          document.getElementById('output_name').innerHTML = document.writeln("Hello, welcome " + user_name + "!");
+        </script>
+      </h1>
       </div>
-  <div id="profile-picture">
+<div id="profile-picture">
     <img src=images/profile-picture.jpg width=500px height="500px" />
-  </div>
+</div>
 <div id="welcome-text">
-  Welcome to my webpage.<br>
+  My name is Jordan Branum.<br>
   I am a student in the
     <a href="https://www.geo.txstate.edu">Geography Department</a> at
     <a href="https://txstate.edu">Texas State University</a>.
@@ -27,7 +31,17 @@
         <li>Data mining</li>
         <li>Creating geo tag within a datatable to expaned visualtion of data.</li>
       </ol>
-    </div>
+</div>
+<div id="copyright">
+      <script>
+      //creating the variable name today then call the function of new Date to full the varialbe with curren date of the computer
+      var today = new Date();
+      //creating the variable name year then call the function of .getFullYear to output year
+      var year = today.getFullYear();
+      //asking the HTML file to write this to the document within the welcome div
+      document.writeIn("Copyright &copy;" + year);
+      </script>
+</div>
 </div>
 </body>
 </html>

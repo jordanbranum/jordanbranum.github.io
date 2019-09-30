@@ -37,5 +37,4 @@ function condition()
     }
 }
 */
-
-var user_name = prompt("Please enter you full name with correct capitalization")
+var user_name = prompt("Please enter you full name with correct capitalization", "Type your name here.");
