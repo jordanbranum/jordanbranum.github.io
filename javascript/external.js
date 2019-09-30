@@ -24,8 +24,8 @@
 //document.writeln(x += 33);
 
 
-document.writeln("<button onclick='condition()'>ConditionTest</button>")
-
+//document.writeln("<button onclick='condition()'>ConditionTest</button>")
+/*
 function condition()
 {
     x = confirm("Are you sure you want to proceed?");
@@ -36,3 +36,6 @@ function condition()
       document.writeln("You chose Cancel!")
     }
 }
+*/
+
+var user_name = prompt("Please enter you full name with correct capitalization")
