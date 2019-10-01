@@ -37,4 +37,18 @@ function condition()
     }
 }
 */
-var user_name = prompt("Please enter you full name with correct capitalization", "Type your name here.");
+//var user_name = prompt("Please enter you full name with correct capitalization", "Type your name here.");
+
+
+function welcome(){
+  let a = "Please enter your name.";
+  let b = "Type your name here.";
+
+  //A prompt box is used to prompt to input a value before entering a page.
+  user_name = window.prompt(a,b);
+
+ message = "<h1> Hello, welcome to my webpage, " + user_name + "!<h1>"
+
+  return message
+}
+ document.write(welcome());

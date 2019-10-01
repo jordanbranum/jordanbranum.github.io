@@ -1,29 +1,28 @@
 <!doctype html>
 <html>
 <head>
-  <script src="javascript/external.js"></script>
+
   <title>Jordan Branum</title>
   <!-- All styling for this HTML document are contained in this external css file -->
-    <link rel= "stylesheet" type="text/css" href="css/main_style.css" />
+    <link rel= "stylesheet" type="text/css" href="css/main_style1.css" />
 </head>
 <body>
   <div id="body-container">
       <div id="header">
-        <h1>
-        <script>
-          document.getElementById('output_name').innerHTML = document.writeln("Hello, welcome " + user_name + "!");
-        </script>
-      </h1>
+          <script src="javascript/external.js"></script>
       </div>
+
 <div id="profile-picture">
     <img src=images/profile-picture.jpg width=500px height="500px" />
 </div>
+
 <div id="welcome-text">
   My name is Jordan Branum.<br>
   I am a student in the
     <a href="https://www.geo.txstate.edu">Geography Department</a> at
     <a href="https://txstate.edu">Texas State University</a>.
 </div>
+
 <div id="research-interests">
       <h3>Research Interest:</h3>
       <ol>
@@ -32,17 +31,15 @@
         <li>Creating geo tag within a datatable to expaned visualtion of data.</li>
       </ol>
 </div>
-<div id="footer">
+
 <div id="copyright">
-      <script>
-      //creating the variable name today then call the function of new Date to full the varialbe with curren date of the computer
+    <script>
       var today = new Date();
-      //creating the variable name year then call the function of .getFullYear to output year
       var year = today.getFullYear();
-      //asking the HTML file to write this to the document within the welcome div
-      document.writeIn("Copyright &copy;" + year);
-      </script>
+      document.writeln("Copyright &copy;" + year);
+    </script>
 </div>
+
 </div>
 </body>
 </html>
