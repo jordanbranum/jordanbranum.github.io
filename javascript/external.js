@@ -69,13 +69,13 @@ function webmap_table()
 
 var webmaps =
 [
-  ["oil Spill Toolkit",
-  "https://www.glo.texas.gov/ost/",
-  "The Oil Spill Toolkit developed by Enterprise Technology Solutions"
+  ["Realtors Property Resources",
+  "https://www.narrpr.com ",
+  "Using google API allowing realtors to set a distance from a property (5miles bubble); gather information about sold home within search vector output a report with comparable to other homes to estimate home value and length of time it has to be listed on market. This web mapping applaction is only aviable to relator so it contian personal information of final selling prices of home that redfin cannot prodive. JQurey is heavily use to project to data in table form for the realtor to produce a profesional pront to clients on a real time bases."
   ],
-  ["Texas Ecosystems Analytical Mapper",
-  "http://tpwd.texas.gov/gis/team/",
-  "The Texas Parks and Wildlife's Landscape Ecology program developed"
+  ["Redfin Full-Service realty",
+  "https://www.redfin.com ",
+  "To provide listing information to home sellers/buyers on the market with a set area in real time. Redfin has market providing listing agent information and claim to be best realtor within the area because they payed to be a redfin listing agent within the website. Redfin also used a similar feature that allow user to set distance bubble, this is mostly a buffer method feture. They also a user draw feature that allows user to draw abstracted shapes creating a buffer in a triangle shape buffers."
   ]
 ];
 
@@ -87,9 +87,16 @@ function webmap_table()
     document.write("<tr>");
     for (var column = 0; column < webmaps[0].length; column++)
     {
+      if (column < 2){
+
+      }
+
       document.write("<td>" + webmaps[row][column] + "</td>");
     }
     document.write("</tr>");
   }
   document.write("</table>");
 }
+
+
+// colspan is need for 4. on homework
