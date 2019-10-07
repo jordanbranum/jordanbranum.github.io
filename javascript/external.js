@@ -88,9 +88,11 @@ function webmap_table()
     for (var column = 0; column < webmaps[0].length; column++)
     {
       if (column < 2){
-
+        column.colspan = "2";
       }
-
+      else {
+        row.rowspan = "3";
+      }
       document.write("<td>" + webmaps[row][column] + "</td>");
     }
     document.write("</tr>");
