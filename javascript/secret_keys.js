@@ -1,1 +1,2 @@
 mapbox_access_token = 'pk.eyJ1Ijoiam9yZGFuYnJhbnVtIiwiYSI6ImNrMWgzMjhyaDA2Z3kzbnRmeHYwaHhseG4ifQ.AR8tCur16mud8CHrITk56Q';
+geocoder_api_key = 'bf1b551e3d4b4264b23244fdcb5be7e2';

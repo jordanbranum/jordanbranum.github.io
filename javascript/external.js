@@ -88,17 +88,13 @@ function webmap_table()
     for (var column = 0; column < webmaps[0].length; column++)
     {
       if (column < 2){
-        column.colspan = "2";
+        document.write("<td>" + webmaps[row][column] + "</td>");
       }
       else {
-        row.rowspan = "3";
+        document.write("</tr><tr><td colspan='2'>" + webmaps[row][column] + "</td>");
       }
-      document.write("<td>" + webmaps[row][column] + "</td>");
     }
     document.write("</tr>");
   }
   document.write("</table>");
 }
-
-
-// colspan is need for 4. on homework
