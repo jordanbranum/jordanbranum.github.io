@@ -1,10 +1,25 @@
 <!doctype html>
 <html>
 <head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+
+ <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+ integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+ crossorigin="">
+ </script>
+
   <script src="javascript/external.js"></script>
+  <script src="javascript/secret_keys.js"></script>
   <title>Jordan Branum</title>
   <!-- All styling for this HTML document are contained in this external css file -->
     <link rel= "stylesheet" type="text/css" href="css/main_style1.css" />
+    <link rel= "stylesheet" type="text/css" href="css/map_style.css"
 </head>
 <body>
   <div id="body-container">
@@ -34,13 +49,6 @@
       </ol>
 </div>
 
-<div id="webmap-reviews">
-  <h3>Webmap Reviews</h3>
-  <script>
-    webmap_table();
-  </script>
-</div>
-
 <div id="copyright">
     <script>
       var today = new Date();
@@ -49,6 +57,56 @@
     </script>
 </div>
 
+<div id="webmap-reviews">
+  <h3>Webmap Reviews</h3>
+  <script>
+    webmap_table();
+  </script>
+</div>
+
+</div>
+
+<h3>My First Webmap</h3>
+<div id="mapid" style="width: 600px; height: 400px; margin: auto;">
+<script>
+  var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',{
+    maxZoom: 18,
+    id: 'mapbox.mapbox-traffic-v1',
+    accessToken: mapbox_access_token
+  }).addTo(mymap);
+
+  var marker = L.marker([51.5, -0.09]).addTo(mymap);
+
+  var circle = L.circle([51.508, -0.11], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+  }).addTo(mymap);
+
+  var polygon = L.polygon([
+    [51.509, -0.08],
+    [51.503, -0.06],
+    [51.51, -0.047],
+  ]).addTo(mymap);
+
+//Add pop window to all three add features
+  marker.bindPopup("<b>Hello World!</b><br>I am a popup.").openPopup();
+  circle.bindPopup("I am a cirlce.");
+  polygon.bindPopup("I am a polygon.");
+  marker.on('click', function(e){
+    mymap.setView(e.latlng, 14);
+    });
+  circle.on('click', function(e){
+    mymap.setView(elatlng, 13);
+    });
+  polygon.om('click', function(e){
+    mymap.setView(elatlng, 13);
+  });
+
+
+  </script>
 </div>
 </body>
 </html>
