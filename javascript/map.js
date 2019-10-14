@@ -1,4 +1,4 @@
-var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+var mymap = L.map('mapid', {fullscreenControl: {pseudoFullscreen: false}}).setView([51.505, -0.09], 13);
 
 // Search Bars for the Map
   var options = {
@@ -175,3 +175,5 @@ var tajIcon = L.icon({
  (new ZoomViewer).addTo(mymap);
 
  mymap.setView([0,0], 1);
+
+//mymap.addControl(new L.Control.fullscreen());
