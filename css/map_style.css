@@ -1,4 +1,6 @@
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-  background: yellow;
+  background: white;
+  font-size: 12px;
+  line-height: 10px;
 }
