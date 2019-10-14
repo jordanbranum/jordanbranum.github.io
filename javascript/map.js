@@ -176,4 +176,4 @@ var tajIcon = L.icon({
 
  mymap.setView([0,0], 1);
 
-//mymap.addControl(new L.Control.fullscreen());
+ L.control.scalefactor().addto(mymap);
