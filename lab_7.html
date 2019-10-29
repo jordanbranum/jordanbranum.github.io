@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--meta is saying use charset and set teh scale and maximum scale at 1 and while the user cant   -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Lab 7</title>
+  <!-- this style bracket is creating a full page map -->
+  <style>
+    html, body, #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    #optionDiv {
+      background-color: dimgray;
+      color: white;
+      padding: 10px;
+      width: 350px;
+    }
+
+    .esri-popup .esri-popup-header .esri-title{
+      font-size: 18px;
+      font-weight: bolder;
+    }
+
+    .esri-popup .esri-pop-up .esri-popup-content{
+      font-size: 14px;
+    }
+
+  </style>
+<!-- the link line is calling on arcgis predefined css stylesheet to set up the page;
+     the script is also reference arcgis on fucntion defined on thier JS sheet-->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.13/"></script>
+
+<!-- 1.Callin on esri predefined var to use in the funtion call; we are creating new var
+     for map and MapView to display the objects.
+     2.Later we add TileLayer to reference arcgis sever to display a TransportationLayer over our simple
+     map and also add the oceans to basemap:-->
+  <script>
+    require([
+    "esri/Map",
+    "esri/views/MapView",
+    "esri/layers/TileLayer",
+    "esri/layers/FeatureLayer",
+    "esri/layers/MapImageLayer",
+    "esri/widgets/BasemapGallery",
+    "esri/layers/GraphicsLayer",
+    "esri/tasks/QueryTask",
+    "esri/tasks/support/Query",
+    "dojo/_base/array",
+    "dojo/dom",
+    "dojo/on",
+    "dojo/domReady!"
+    ],
+function(Map, MapView, TileLayer, FeatureLayer, BasemapGallery, GraphicsLayer, QueryTask, Query, arrayUtils, dom, on){
+
+      var TransportationLayer = new TileLayer({
+        url: "https://server.arcgisonline.com/ArcGIS/rest/services/rtation/MapServer"
+      });
+
+      // Displaying the new CitiesRenderer objects and setting a minor opacity to the labeles; call in
+      // in the orginal funciton by adding to the array layers:[]. The
+            var CitiesLayer = new FeatureLayer({
+              url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/OpenBeerDatabase/FeatureServer/0",
+              sublayers: [
+                {
+                id: 0,
+                opacity: 0.4
+                }
+              ]
+            });
+
+      var map = new Map({
+        basemap: "dark-gray",
+        layers:[ CitiesLayer ] //add TransportationLayer if I need the street map
+      });
+
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        zoom: 10,
+        center: [-118.2095, 34.0866]
+      });
+/*
+  var basemapGallery = new BasemapGallery({
+    view: view
+  });
+
+  view.ui.add(basemapGallery, {
+    position: "top-right"
+  });
+*/
+
+  var popUrl = "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/OpenBeerDatabase/FeatureServer/0";
+
+  var popupTemplate = {
+    title: "{Brewery}",
+    fieldInfos: [{
+      fieldName: "name",
+      label: "Name",
+      format: {
+        places: 0,
+        digitSeperator: true
+      }
+    }, {
+      fieldName: "city",
+      label: "City",
+      format: {
+        places: 0,
+        digitSeperator: true
+      }
+    }, {
+      fieldName: "state",
+      label: "State",
+      format:{
+        places: 0,
+        digitSeperator: true
+      }
+    }],
+    content:
+      "<b>Name:" + "</b> {Name}" +
+      "<br><b>City:</b> {City}" +
+      "<br><b>Latitude:</b> {Latitude}" +
+      "<br><b>Longitude:</b> {Longitude}"
+  };
+
+  var resultsLayer = new GraphicsLayer();
+
+  var qTask = new QueryTask({
+    url: popUrl
+  });
+
+  var params = new Query({
+    returnGeometry: true,
+    outFields: ["*"]
+});
+
+view.when(function() {
+  view.ui.add("optionsDiv", "bottom-right");
+  on(dom.byId("doBtn"), "click", doQuery);
+});
+
+var attributeName = dom.byId("attSelect");
+var expressionSign = dom.byId("signSelect");
+var value = dom.byId("valSelect");
+
+function doQuery() {
+  resultsLayer.removeAll();
+  params.where = attributeName.value + expressionSign.value + value.value;
+  qTask.execute(params)
+    .then(getResults)
+    .catch(promiseRejected);
+}
+
+function getResults(response) {
+  var popResults = arrayUtils.map(response.features, function(
+    feature) {
+    feature.popupTemplate = popupTemplate;
+    return feature;
+});
+
+resultsLayer.addMany(popResults);
+
+view.goTo(popResults).then(function() {
+  view.popup.open({
+    features: popResults,
+    featuresMenuOpen: true,
+    updateLocationEnabled: true
+  });
+});
+
+dom.byId("printResults").innerHTML = popResults.length + " results found!";
+}
+
+function promiseRejected(error) {
+  console.error("Promise rejected: ", error.message);
+}
+
+}); // end of fucntion Map
+
+// on the where statement we need to display a drop down menu of all states we can select
+    </script>
+</head>
+<body>
+  <div id="viewDiv"</div>
+    <div class="esri-widget" id="optionsDiv">
+    <h2>Brewery Location by State</h2>
+    <select class="esri-widget" id="signSelect">
+      <option value=">">where</option>
+    </select>
+    <select class="esri-widget" id="valSelect">
+      <option value="State">State</option
+    </select>
+    <br>
+    <br>
+    <button class="esri-widget" id="doBtn">Do Query</button>
+    <br>
+    <p><span id="printResults"></span></p>
+    </div>
+</body>
+</html>
