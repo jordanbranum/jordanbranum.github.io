@@ -10,27 +10,68 @@ var mymap = L.map('mapid', {fullscreenControl: {pseudoFullscreen: false}}).setVi
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{}).addTo(mymap);
 
 // 7 Wonder of the world
+var seven_wonders =
+[
+  // Taj Mahal
+  ['<img src="images/taj-mahal.jpg" height="50px" width="50px"/>',
+  27.174961, 78.042385,
+  '<br><b>Taj Mahal</b></br><p>It was commissioned in 1632 by the Mughal emperor Shah Jahan (reigned from 1628 to 1658) to house the tomb of his favourite wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself. The tomb is the centrepiece of a 17-hectare (42-acre) complex, which includes a mosque and a guest house, and is set in formal gardens bounded on three sides by a crenellated wall. </p>' + '<img src="images/taj-mahal.jpg" height="50px" width="50px"/>'
+  ,'images/taj-mahal.jpg'
+  ],
+  // Great Wall of China
+  ['<img src="images/taj-mahal.jpg" height="50px" width="50px"/>',
+  27.174961, 78.042385,
+  '<br><b>Taj Mahal</b></br><p>It was commissioned in 1632 by the Mughal emperor Shah Jahan (reigned from 1628 to 1658) to house the tomb of his favourite wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself. The tomb is the centrepiece of a 17-hectare (42-acre) complex, which includes a mosque and a guest house, and is set in formal gardens bounded on three sides by a crenellated wall. </p>' + '<img src="images/taj-mahal.jpg" height="50px" width="50px"/>'
+  ,'images/taj-mahal.jpg'
+  ],
+  // Petra of Jordan
+  ['<img src="images/taj-mahal.jpg" height="50px" width="50px"/>',
+  27.174961, 78.042385,
+  '<br><b>Taj Mahal</b></br><p>It was commissioned in 1632 by the Mughal emperor Shah Jahan (reigned from 1628 to 1658) to house the tomb of his favourite wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself. The tomb is the centrepiece of a 17-hectare (42-acre) complex, which includes a mosque and a guest house, and is set in formal gardens bounded on three sides by a crenellated wall. </p>' + '<img src="images/taj-mahal.jpg" height="50px" width="50px"/>'
+  ,'images/taj-mahal.jpg'
+  ],
+  // Christ of Brazil
+  ['<img src="images/taj-mahal.jpg" height="50px" width="50px"/>',
+  27.174961, 78.042385,
+  '<br><b>Taj Mahal</b></br><p>It was commissioned in 1632 by the Mughal emperor Shah Jahan (reigned from 1628 to 1658) to house the tomb of his favourite wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself. The tomb is the centrepiece of a 17-hectare (42-acre) complex, which includes a mosque and a guest house, and is set in formal gardens bounded on three sides by a crenellated wall. </p>' + '<img src="images/taj-mahal.jpg" height="50px" width="50px"/>'
+  ,'images/taj-mahal.jpg'
+  ],
+  // Machu pecchue
+  ['<img src="images/taj-mahal.jpg" height="50px" width="50px"/>',
+  27.174961, 78.042385,
+  '<br><b>Taj Mahal</b></br><p>It was commissioned in 1632 by the Mughal emperor Shah Jahan (reigned from 1628 to 1658) to house the tomb of his favourite wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself. The tomb is the centrepiece of a 17-hectare (42-acre) complex, which includes a mosque and a guest house, and is set in formal gardens bounded on three sides by a crenellated wall. </p>' + '<img src="images/taj-mahal.jpg" height="50px" width="50px"/>'
+  ,'images/taj-mahal.jpg'
+  ],
+  // Mexico pyramids
+  ['<img src="images/taj-mahal.jpg" height="50px" width="50px"/>',
+  27.174961, 78.042385,
+  '<br><b>Taj Mahal</b></br><p>It was commissioned in 1632 by the Mughal emperor Shah Jahan (reigned from 1628 to 1658) to house the tomb of his favourite wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself. The tomb is the centrepiece of a 17-hectare (42-acre) complex, which includes a mosque and a guest house, and is set in formal gardens bounded on three sides by a crenellated wall. </p>' + '<img src="images/taj-mahal.jpg" height="50px" width="50px"/>'
+  ,'images/taj-mahal.jpg'
+  ],
+  // Rome
+  ['<img src="images/taj-mahal.jpg" height="50px" width="50px"/>',
+  27.174961, 78.042385,
+  '<br><b>Taj Mahal</b></br><p>It was commissioned in 1632 by the Mughal emperor Shah Jahan (reigned from 1628 to 1658) to house the tomb of his favourite wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself. The tomb is the centrepiece of a 17-hectare (42-acre) complex, which includes a mosque and a guest house, and is set in formal gardens bounded on three sides by a crenellated wall. </p>' + '<img src="images/taj-mahal.jpg" height="50px" width="50px"/>'
+  ,'images/taj-mahal.jpg'
+  ],
+];
 
-//Taj Mahal
-var tajimg = '<img src="images/taj-mahal.jpg" height="50px" width="50px"/>';
+var wonder_image = [];
+var wonder_popup = [];
+var wonder_icon = [];
+var wonder_marker = [];
 
-var tajpopup = L.popup()
-  .setLatLng([27.174961, 78.042385])
-  .setContent('<br><b>Taj Mahal</b></br><p>It was commissioned in 1632 by the Mughal emperor Shah Jahan (reigned from 1628 to 1658) to house the tomb of his favourite wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself. The tomb is the centrepiece of a 17-hectare (42-acre) complex, which includes a mosque and a guest house, and is set in formal gardens bounded on three sides by a crenellated wall. </p>' + tajimg);
+for (i = 0; i <=0; i++)
+{
+  wonder_image[i] = seven_wonders[i][0];
+  wonder_popup[i] = 'L.popup().setLatLng([' + seven_wonders[i][1] + ',' + seven_wonders[i][2] + ']).setContent(' + seven_wonders[i][3] + ');';
+  wonder_icon[i] = L.icon({ iconUrl: seven_wonders[i][4], iconSize: [30,30] });
+  wonder_marker[i] = L.marker( [seven_wonders[i][1], seven_wonders[i][2]], {icon: wonder_icon[i]}).addTo(mymap).bindPopup(wonder_popup[i], {closeOnClick: true});
+  wonder_marker[i].on('click', function(e){ mymap.setView(e.latlng, 14); });
+}
 
-var tajIcon = L.icon({
-  iconUrl: 'images/taj-mahal.jpg',
-  iconSize: [30,30]
-});
 
-  var tajmahal = L.marker(
-    [27.174961, 78.042385],
-    {icon: tajIcon}
-  ).addTo(mymap).bindPopup(tajpopup, {closeOnClick: true});
 
-  tajmahal.on('click', function(e){
-    mymap.setView(e.latlng, 14);
-    });
 
 //Great Wall of China
   var chinaimg = '<img src = images/wall-china.jpg height="50px" width= "50px"/>';
@@ -146,7 +187,7 @@ var tajIcon = L.icon({
 
   var romepopup = L.popup()
   .setLatLng([41.890169, 12.492269])
-  .setContent('<br><b>Rome Colosseum</b></br><p>The Colosseum could hold an estimated 50,000 to 80,000 spectators during phases of its various renovations over the centuries,[5][6] having an average audience of some 65,000;[7][8] it was used for gladiatorial contests and public spectacles such as mock sea battles (for only a short time as the hypogeum was soon filled in with mechanisms to support the other activities), animal hunts, executions, re-enactments of famous battles.</p>' + romeimg);
+  .setContent('<br><b>Rome Colosseum</b></br><p>The Colosseum could hold an estimated 50,000 to 80,000 spectators during phases of its various renovations over the centuries, having an average audience of some 65,000; it was used for gladiatorial contests and public spectacles such as mock sea battles (for only a short time as the hypogeum was soon filled in with mechanisms to support the other activities), animal hunts, executions, re-enactments of famous battles.</p>' + romeimg);
 
 
   var rome = L.marker(
@@ -176,4 +217,4 @@ var tajIcon = L.icon({
 
  mymap.setView([0,0], 1);
 
- L.control.scalefactor().addto(mymap);
+ var scalefactor = L.control.scalefactor().addto(mymap);

@@ -55,7 +55,7 @@
     "dojo/on",
     "dojo/domReady!"
     ],
-    function(Map, MapView, TileLayer, MapImageLayer, BasemapGallery, GraphicsLayer, QueryTask, Query, arrayUtils, dom, on){
+function(Map, MapView, TileLayer, MapImageLayer, BasemapGallery, GraphicsLayer, QueryTask, Query, arrayUtils, dom, on){
 
       var TransportationLayer = new TileLayer({
         url: "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer"
@@ -109,7 +109,7 @@
     position: "top-right"
   });
 
-  var popUrl = "https://services.arcgis.com/V6ZHFr6ZdgNZuVG0/ArcGIS/rest/services/CaliforniaCities/GeatureServer/0";
+  var popUrl = "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/CaliforniaCities/FeatureServer/0";
 
   var popupTemplate = {
     title: "{City}",
@@ -144,34 +144,35 @@
   var params = new Query({
     returnGeometry: true,
     outFields: ["*"]
-  });
+});
 
-view.when(funtion() {
+view.when(function() {
   view.ui.add("optionsDiv", "bottom-right");
   on(dom.byId("doBtn"), "click", doQuery);
 });
 
 var attributeName = dom.byId("attSelect");
-var espressionSign = dom.byId("signSelect");
+var expressionSign = dom.byId("signSelect");
 var value = dom.byId("valSelect");
 
 function doQuery() {
   resultsLayer.removeAll();
-  params.where = attributeName.value + espressionSign.value + value.value;
+  params.where = attributeName.value + expressionSign.value + value.value;
   qTask.execute(params)
-  .then(getResults)
-  .catch(promiseRejected);
+    .then(getResults)
+    .catch(promiseRejected);
 }
 
 function getResults(response) {
-  var popResults = arrayUtils.map(response.features, function(featuer){
+  var popResults = arrayUtils.map(response.features, function(
+    feature) {
     feature.popupTemplate = popupTemplate;
     return feature;
 });
 
-resultLayer.addMany(popupResults);
+resultsLayer.addMany(popResults);
 
-view.goTo(popResults).then(funtion(){
+view.goTo(popResults).then(function() {
   view.popup.open({
     features: popResults,
     featuresMenuOpen: true,
@@ -181,9 +182,11 @@ view.goTo(popResults).then(funtion(){
 
 dom.byId("printResults").innerHTML = popResults.length + " results found!";
 }
+
 function promiseRejected(error) {
   console.error("Promise rejected: ", error.message);
 }
+
 }); // end of fucntion Map
 
     </script>
