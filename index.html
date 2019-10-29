@@ -24,7 +24,7 @@
   <script src="javascript/secret_keys.js"></script>
   <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
   <script src="https://npmcdn.com/jquery@3.0.0/dist/jquery.min.js"></script>
-<script src="https://rawgit.com/MarcChasse/leaflet.ScaleFactor/master/leaflet.scalefactor.min.js"></script>
+  <script src="https://rawgit.com/MarcChasse/leaflet.ScaleFactor/master/leaflet.scalefactor.min.js"></script>
   <title>Jordan Branum</title>
   <!-- All styling for this HTML document are contained in this external css file -->
     <link rel= "stylesheet" type="text/css" href="css/main_style1.css" />
@@ -71,13 +71,26 @@
   <script>
     webmap_table();
   </script>
+
+  <h3>Geocoding Map</h3>
+  <div id="mapid" style="width: 600px; height: 400px; margin: auto;">
+    <script src="javascript/map.js"></script>
+
+    <!-- Simple Drop Down Menu -->
+    <div class="dropdown">
+      <button class="dropbtn">Dropdown</button>
+      <div class="dropdown-content">
+          <a href= "https://jordanbranum.github.io/simple_mapping.html" target="_blank">Simple Map</a>
+          <a href= "https://jordanbranum.github.io/tile_layer.html" target="_blank">Title Layer</a>
+          <a href= "https://jordanbranum.github.io/dynamic_layers.html" target="_blank">Dynamic Layer</a>
+          <a href= "https://jordanbranum.github.io/basemap_gallery.html" target="_blank">Basemap Gallery</a>
+          <a href= "https://jordanbranum.github.io/query_task.html" target="_blank">Spatial Query</a>
+          <a href= "" target="_blank">Lab 7 Map</a>
+    </div>
+  </div>
 </div>
 
-</div>
+</div> <!-- END of body div -->
 
-<h3>Geocoding Map</h3>
-<div id="mapid" style="width: 600px; height: 400px; margin: auto;">
-  <script src="javascript/map.js"></script>
-</div>
 </body>
 </html>
