@@ -51,12 +51,13 @@
     "esri/layers/GraphicsLayer",
     "esri/tasks/QueryTask",
     "esri/tasks/support/Query",
+    "esri/widgets/CoordinateConversion",
     "dojo/_base/array",
     "dojo/dom",
     "dojo/on",
     "dojo/domReady!"
     ],
-function(Map, MapView, TileLayer, FeatureLayer, BasemapGallery, GraphicsLayer, QueryTask, Query, arrayUtils, dom, on){
+function(Map, MapView, TileLayer, FeatureLayer, BasemapGallery, GraphicsLayer, QueryTask, Query, CoordinateConversion, arrayUtils, dom, on){
 
       var TransportationLayer = new TileLayer({
         url: "https://server.arcgisonline.com/ArcGIS/rest/services/rtation/MapServer"
@@ -65,7 +66,7 @@ function(Map, MapView, TileLayer, FeatureLayer, BasemapGallery, GraphicsLayer, Q
       // Displaying the new CitiesRenderer objects and setting a minor opacity to the labeles; call in
       // in the orginal funciton by adding to the array layers:[]. The
             var CitiesLayer = new FeatureLayer({
-              url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/OpenBeerDatabase/FeatureServer/0",
+              url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/Iceland_Earthquakes/FeatureServer/0",
               sublayers: [
                 {
                 id: 0,
@@ -94,21 +95,28 @@ function(Map, MapView, TileLayer, FeatureLayer, BasemapGallery, GraphicsLayer, Q
     position: "top-right"
   });
 */
+/*
+//Adding Widget
+var ccWidget = new CoordinateConversion({
+  view: view
+});
 
-  var popUrl = "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/OpenBeerDatabase/FeatureServer/0";
+view.ui.add(ccWidget, "top-left");
+*/
+  var popUrl = "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/Iceland_Earthquakes/FeatureServer/0";
 
   var popupTemplate = {
-    title: "{Brewery}",
+    title: "{Iceland_Earthquakes}",
     fieldInfos: [{
-      fieldName: "name",
-      label: "Name",
+      fieldName: "magnitude",
+      label: "Magnitude",
       format: {
         places: 0,
         digitSeperator: true
       }
     }, {
-      fieldName: "city",
-      label: "City",
+      fieldName: "magtype",
+      label: "MagType",
       format: {
         places: 0,
         digitSeperator: true
@@ -122,8 +130,8 @@ function(Map, MapView, TileLayer, FeatureLayer, BasemapGallery, GraphicsLayer, Q
       }
     }],
     content:
-      "<b>Name:" + "</b> {Name}" +
-      "<br><b>City:</b> {City}" +
+      "<b>Magnitude:" + "</b> {Magnitude}" +
+      "<br><b>MagType:</b> {MagType}" +
       "<br><b>Latitude:</b> {Latitude}" +
       "<br><b>Longitude:</b> {Longitude}"
   };
@@ -188,12 +196,23 @@ function promiseRejected(error) {
 <body>
   <div id="viewDiv"</div>
     <div class="esri-widget" id="optionsDiv">
-    <h2>Brewery Location by State</h2>
+    <h2>Iceland Earthquakes</h2>
+    <select class="esri-widget" id="attSelect">
+      <option value="Magnitude">Magnitude</option>
+      <option value="MagType">MagType</option>
+    </select>
     <select class="esri-widget" id="signSelect">
-      <option value=">">where</option>
+      <option value=">">is greater than</option>
+      <option value="<">is less than</option>
     </select>
     <select class="esri-widget" id="valSelect">
-      <option value="State">State</option
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
     </select>
     <br>
     <br>
