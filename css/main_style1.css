@@ -53,10 +53,10 @@ h1{
 }
 
 #copyright {
-  position: absolute; /* need to play aroudn with copright so it will pop up */
+  position: absolute;; /* need to play aroudn with copright so it will pop up */
   width: 1000px;
   text-align: center;
-  bottom: 40px;
+  bottom: 60px;
 }
 
 #webmap-reviews{
@@ -106,3 +106,12 @@ h1{
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.footer{
+  position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: black;
+   text-align: center;
+}

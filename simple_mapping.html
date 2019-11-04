@@ -21,11 +21,14 @@
     "esri/Map",
     "esri/views/MapView"
     ],
+
+// This is creating the map and opening it to a certain map view we are using in this example
     function(Map, MapView){
       var map = new Map({
         basemap: "streets"
       });
 
+// This var is how the funtion open to the predefined center list below. 
       var view = new MapView({
         container: "viewDiv",
         map: map,
