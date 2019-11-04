@@ -51,7 +51,6 @@
     "esri/layers/GraphicsLayer",
     "esri/tasks/QueryTask",
     "esri/tasks/support/Query",
-    "esri/widgets/CoordinateConversion",
     "dojo/_base/array",
     "dojo/dom",
     "dojo/on",
@@ -79,7 +78,7 @@ function(Map, MapView, TileLayer, FeatureLayer, MapImageLayer, BasemapGallery, G
 
       var map = new Map({
         basemap: "dark-gray",
-        layers:[ TransportationLayer, CitiesLayer, FeatureLayer ] //add TransportationLayer if I need the street map
+        layers:[ CitiesLayer, FeatureLayer ] //add TransportationLayer if I need the street map
       });
 
       var view = new MapView({
