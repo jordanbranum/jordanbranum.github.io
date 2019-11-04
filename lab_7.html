@@ -65,8 +65,8 @@ function(Map, MapView, TileLayer, FeatureLayer, MapImageLayer, BasemapGallery, G
 
       // Displaying the new CitiesRenderer objects and setting a minor opacity to the labeles; call in
       // in the orginal funciton by adding to the array layers:[]. The
-            var CitiesLayer = new FeatureLayer({
-              url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/Iceland_Earthquakes/FeatureServer/0",
+            var CitiesLayer = new MapImageLayer({
+              url: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer",
               sublayers: [
                 {
                 id: 0,
@@ -75,9 +75,11 @@ function(Map, MapView, TileLayer, FeatureLayer, MapImageLayer, BasemapGallery, G
               ]
             });
 
+      var FeatureLayer = new FeatureLayer ("https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/Iceland_Earthquakes/FeatureServer/0")
+
       var map = new Map({
         basemap: "dark-gray",
-        layers:[ TransportationLayer, CitiesLayer ] //add TransportationLayer if I need the street map
+        layers:[ TransportationLayer, CitiesLayer, FeatureLayer ] //add TransportationLayer if I need the street map
       });
 
       var view = new MapView({
