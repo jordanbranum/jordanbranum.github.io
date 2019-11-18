@@ -7,28 +7,58 @@
 
 */
 body {
-  background-color: # #f7f7f7  /*The background-color property sets the background color of an element. The background of an element is the total size of the element, including padding and border (but not the margin).*/
-  color:#5e3c99; /* property specifies the color of text on a website.*/
-  text-align: center; /* property specifies the horizontal alignment of text in an element. While also centering the body with it own box*/
-  margin: 0; /* property sets the margins for an element, and is shorthand property for the properties margin(top,bottom,left,right). Control how close another element is allow to get to define element your working with*/
+  background-color: # #f7f7f7;
+  color:#5e3c99;
+  text-align: center;
+  margin: 0;
+/*
+background- color: The background-color property sets the background color of an element. The background of an element is the total size of the element, including padding and border (but not the margin).
+color: property specifies the color of text on a website.
+text-align: property specifies the horizontal alignment of text in an element. While also centering the body with it own box
+margin: property sets the margins for an element, and is shorthand property for the properties margin(top,bottom,left,right). Control how close another element is allow to get to define element your working with
+*/
 }
 
 h1{
-  color: #e66101; /* property specifies the color of text on a website. (Darker orange)*/
-  padding: 5px; /* an element padding is the space between its content and its border. Crestes extra within an element, while margin create extra space aroudn an element. Creates a single space between both header for better readable. */
-  margin: 0; /* property sets the margins for an element, and is shorthand property for the properties margin(top,bottom,left,right). Control how close another element is allow to get to define element your working with*/
+  color: #e66101;
+  padding: 5px;
+  margin: 0;
+/*
+color: property specifies the color of text on a website. (Darker orange)
+padding: an element padding is the space between its content and its border. Crestes extra within an element, while margin create extra space aroudn an element. Creates a single space between both header for better readable.
+margin: property sets the margins for an element, and is shorthand property for the properties margin(top,bottom,left,right). Control how close another element is allow to get to define element your working with
+*/
 }
 
 
 /* #body-container for which the our body elements. Defining with a max width of 1000px; margin auto along the width to match max widith; created a boarder around the continer of 2px; while also radius the all four corners. */
 #body-container{
-  background-color: #f7f7f7;  /*The background-color property sets the background color of an element. The background of an element is the total size of the element, including padding and border (but not the margin).*/
-  max-width: 1000px; /* property defines the maximum width of an element. If the content is larger than the maximum width, it will automatically change the height of the element. If the content is smaller than the maximum width, the max-width property has no effect.*/
-  margin: auto; /* property sets the margins for an element, and is shorthand property for the properties margin(top,bottom,left,right). Control how close another element is allow to get to define element your working with. Auto is a variable that allows the browers to calculates the marin base off the container.*/
-  height: 100vh; /* property sets the height of an element. The height of an elements does include padding, borders, or margins. If set to auto the element will automatically adjust its height to allow its content to be display correctly. If set to numeric value (like pixels, (r)em, percentages) then if the contect does not fit within the specified height, it will overflow. How the container will handle teh overflowing content is defined by the oberlfow property.*/
-  border: 2px soild #5e3c99; /* Border created around an element that conforms around the container or box limit of the element. (border-width, style, color) are control varibles. */
-  border-radius: 25px; /* property degines the radius of the element's conrners. -radius allow the user to round the corners to an element. */
-  /* remove overflow:hidden to allow the page to scrool */
+  background-color: #f7f7f7;
+  max-width: 1000px;
+  margin: auto;
+  height: 100vh;
+  border: 2px soild #5e3c99;
+  border-radius: 25px;
+  overflow: scroll;
+
+/*
+background-color: The background-color property sets the background color of an element. The background of an element is the total size of the element, including padding and border (but not the margin).
+
+max-width: property defines the maximum width of an element. If the content is larger than the maximum width,
+          it will automatically change the height of the element. If the content is smaller than the maximum width, the max-width property has no effect.
+
+margin: property sets the margins for an element, and is shorthand property for the properties margin(top,bottom,left,right).
+        Control how close another element is allow to get to define element your working with. Auto is a variable that allows the browers to calculates the marin base off the container.
+
+height: property sets the height of an element. The height of an elements does include padding, borders, or margins. If set to auto the element will automatically adjust its height to allow its content to be display correctly.
+        If set to numeric value (like pixels, (r)em, percentages) then if the contect does not fit within the specified height, it will overflow. How the container will handle teh overflowing content is defined by the oberlfow property.
+
+border: Border created around an element that conforms around the container or box limit of the element. (border-width, style, color) are control varibles.
+
+border-radius: property degines the radius of the element's conrners. -radius allow the user to round the corners to an element.
+
+overflow: property specifies wheather to clop the content or to add scrollbars when the content of the element is too big to fit the specified area.
+*/
 }
 
 #header {
@@ -37,23 +67,34 @@ h1{
 
 #profile-picture{
   float: left;
-  } /* property specifies how an element should float aglin to left margin. Allow the image to also wrap around text for best fit within container. */
-
+/* property specifies how an element should float aglin to left margin. Allow the image to also wrap around text for best fit within container. */
+}
 
 #welcome-text {
-  padding-top: 25px; /* element's padding is the space between its content and its border. The paddign-top property sets the top padding (space) of an element. Again we are using padding to create readable between Welcome message and links below. */
-  font-size: 25px; /* property sets the size of a font */
+  padding-top: 25px;
+  font-size: 25px;
+/*
+padding-top: element's padding is the space between its content and its border. The paddign-top property sets the top padding (space) of an element.
+             Again we are using padding to create readable between Welcome message and links below.
+font-size: property sets the size of a font
+*/
 }
 
 #research-interests {
-  text-align: left; /* property specifies the horizontal alignment of text in an element. Left align ordered list; looks better than a center list. */
-  font-size: 25px; /* property sets the size of a font */
-  position: relative; /* property specifies the type of positioning method used for an element (static, relative, absolute, fixed, or sticky) */
-  left: 50px; /* The left property affects the horizontal position of a positioned element. This property has no effect on non-positioned elements. This element inheir relative postion from varibale set above. */
+  text-align: left;
+  font-size: 25px;
+  position: relative;
+  left: 50px;
+/*
+text-align: property specifies the horizontal alignment of text in an element. Left align ordered list; looks better than a center list.
+font-size: property sets the size of a font
+position: property specifies the type of positioning method used for an element (static, relative, absolute, fixed, or sticky)
+left: The left property affects the horizontal position of a positioned element. This property has no effect on non-positioned elements. This element inheir relative postion from varibale set above.
+*/
 }
 
 #copyright {
-  position: absolute;; /* need to play aroudn with copright so it will pop up */
+  position: relative; /* need to play aroudn with copright so it will pop up */
   width: 1000px;
   text-align: center;
   bottom: 60px;
