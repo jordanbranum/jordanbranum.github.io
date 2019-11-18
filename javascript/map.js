@@ -61,7 +61,7 @@ var wonder_popup = [];
 var wonder_icon = [];
 var wonder_marker = [];
 
-for (i = 0; i <=6; i++)
+for (i = 0; i <= 6; i++)
 {
   wonder_image[i] = seven_wonders[i][0];
   wonder_popup[i] = 'L.popup().setLatLng([' + seven_wonders[i][1] + ',' + seven_wonders[i][2] + ']).setContent(' + seven_wonders[i][3] + ');';
